@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+ }
+ body{
+ display: flex;
+ height: 100vh;
+ justify-content: center;
+ align-items: center;
+ padding: 10px;
+ background: linear-gradient(135deg, #71b7e6,#9b59b6);
+ }
+ .container{
+ max-height: 600px;
+ max-width: 500px;
+ width: 100%;
+ background: #fff;
+ padding: 25px 30px;
+ border-radius: 5px;
+ }
+
+.container .title{
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+.container .title::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+.container form .User-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+form .User-details .input-box{
+    margin: 20px 0 12px 0;
+    width: calc(100% /2 -20px);
+}
+.User-details .input-box .details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.User-details .input-box input{
+    height: 40px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+.User-details .input-box input: focus,
+.User-details .input-box input: valid{
+    border-color: #9b59b6
+}
+form .button{
+    height: 45px;
+    margin: 45px 0px;
+}
+form .button input{
+    height: 70%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+</style>
+    {% comment %} <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="{% static 'sign1.css' %}"> {% endcomment %}
+    <title>Signup</title>
+</head>
+<body>
+<div class="container">
+    <div class="title">Registration</div>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="User-details">
+            <div class="input-box">
+                <span class="details">Full Name</span>
+                <input type="text" name="fullname" placeholder="fullname" required>
+            </div>
+            
+             <div class="input-box">
+                <span class="details">username</span>
+                <input type="text" name="username" placeholder="username" required>
+            </div>
+             <div class="input-box">
+                <span class="details">Email ID</span>
+                <input type="text" name="email" placeholder="email" required>
+            </div>
+             <div class="input-box">
+                <span class="details">Password</span>
+                <input type="password" name="password" placeholder="password" required>
+            </div>
+            
+            <div class="input-box">
+                <span class="details">Phone Number</span>
+                <input type="number" name="num" placeholder="num" required>
+            </div>
+            
+                <a href="form"><div class="button">
+               <input type="submit" value="Register"></div></a>
+        </div>
+    </form>
+    <div class="message">
+        {% for message in messages %}
+       <h3 style="color: red;">{{message}}</h3> 
+         {% endfor %} 
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body{
+            color:white;
+            font-size:50px;
+            background-image: url("/static/food1.jpg");
+            list-style: none;
+            backdrop-filter: blur(5px);
+            text-align:center;
+            background-size: 1920px 1050px;
+        }
+        a{
+            text-decoration: none;
+            color:white;
+            cursor:pointer;
+        }
+
+        
+    </style>
+    <title>Add</title>
+</head>
+
+<body>
+    
+
+    <div class="top-wrapper">
+        <h1>ONE-BITE</h1>
+        <div class="order">
+            <li><a href="{% url 'home' %}">Order List </a></li>
+            <hr/> <li><a href="{% url 'add' %}">Order Now</a></li>
+        </div>
+        <div id="bottom">
+            <li><h5><img src="/static/phone-call.png"> 9999996665 &nbsp;&nbsp;
+                <img src="/static/gmail.png"><a href="mailto:onebyte8@gmail.com"> onebyte8@gmail.com</a></h5></li>
+
+        </div>
+
+
+
+    </div>
+</body>
+
+</html>
+
